@@ -18,7 +18,8 @@ export const Route = createFileRoute("/")({
     links: [
       {
         rel: "icon",
-        href: "/logo-rm.jpg", 
+        type: "image/svg+xml",
+        href: "assets/logo-rm.jpg", 
       },
     ],
   }),
