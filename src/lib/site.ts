@@ -1,5 +1,5 @@
 
-import logoRm from "@/assets/logo-rm.png";
+import logoRm from "@/assets/logo-rm.jpg";
 
 export const SITE = {
   name: "La Ruta del Mate",
