@@ -98,6 +98,7 @@ export const PRODUCTS: Product[] = [
     profile: "Herbal, digestivo y refrescante",
     variants: [{ size: "500 g", price: 7500 }],
     tag: "Con hierbas",
+    image: imgReiCompuesta,
   },
   {
     id: "sara-coco",
