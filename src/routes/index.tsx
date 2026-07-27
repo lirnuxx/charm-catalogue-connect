@@ -5,7 +5,7 @@ import yerbaTexture from "@/assets/yerba-texture.jpg";
 import { SITE, PRODUCTS, formatPrice, waLink } from "@/lib/site";
 import { WhatsAppIcon } from "@/components/site-layout";
 import { PhotoCarousel } from "@/components/photo-carousel";
-import faviCon from "@/assets/logo-rm.jpg";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -14,9 +14,12 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Emprendimiento familiar de Suipacha. Yerbas uruguayas y brasileñas seleccionadas: Baldo, Canarias, Rei Verde, Sara y más." },
       { property: "og:title", content: "La Ruta del Mate — Yerbas seleccionadas" },
       { property: "og:description", content: "Yerbas uruguayas y brasileñas seleccionadas en Suipacha." },
-      { property: "og:image", content: faviCon },
-      { property: "og:image:alt", content: "Logo La Ruta del Mate" },
-      { property: "og:type", content: "website" },
+    ],
+    links: [
+      {
+        rel: "icon",
+        href: "/logo-rm.jpg", 
+      },
     ],
   }),
   component: Home,
