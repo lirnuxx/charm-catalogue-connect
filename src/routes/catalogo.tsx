@@ -79,13 +79,22 @@ function Catalog() {
               <article
                 key={p.id}
                 style={{ animationDelay: `${idx * 70}ms` }}
-                className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-warm rm-anim-fade-up"
+                className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-warm rm-anim-fade-up"
               >
-                <div className="flex items-center justify-between gap-2">
-                  <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{p.brand}</span>
-                  {p.tag && <span className="rounded-full bg-[color:var(--gold)]/20 px-3 py-1 text-xs font-medium text-foreground/80">{p.tag}</span>}
+                <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-secondary/60 to-background">
+                  <img
+                    src={p.image}
+                    alt={`Paquete de yerba ${p.name}`}
+                    loading="lazy"
+                    className="h-full w-full object-contain p-4 transition-transform duration-500 hover:scale-105"
+                  />
+                  <div className="absolute left-4 top-4 flex items-center gap-2">
+                    <span className="rounded-full bg-primary/90 px-3 py-1 text-xs font-medium text-primary-foreground backdrop-blur">{p.brand}</span>
+                    {p.tag && <span className="rounded-full bg-[color:var(--gold)]/90 px-3 py-1 text-xs font-medium text-foreground backdrop-blur">{p.tag}</span>}
+                  </div>
                 </div>
-                <h2 className="mt-4 font-display text-2xl font-semibold leading-tight">{p.name}</h2>
+                <div className="flex flex-1 flex-col p-6">
+                <h2 className="font-display text-2xl font-semibold leading-tight">{p.name}</h2>
                 <p className="mt-2 text-sm text-muted-foreground">{p.profile}</p>
                 <p className="mt-1 text-xs text-muted-foreground/80">Origen: {p.origin}</p>
 
