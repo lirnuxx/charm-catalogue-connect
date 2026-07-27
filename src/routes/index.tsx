@@ -74,7 +74,7 @@ function Home() {
               />
             </div>
             <div className="absolute -bottom-4 -left-4 hidden rounded-2xl bg-background/95 p-4 text-foreground shadow-warm ring-1 ring-border sm:block">
-              <p className="font-display text-2xl font-semibold">7 yerbas</p>
+              <p className="font-display text-2xl font-semibold">Yerbas</p>
               <p className="text-xs text-muted-foreground">Seleccionadas para vos</p>
             </div>
           </div>
