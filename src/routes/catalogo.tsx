@@ -61,15 +61,17 @@ function Catalog() {
         {loading ? (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: Math.max(3, filtered.length) }).map((_, i) => (
-              <div key={i} className="flex flex-col rounded-2xl border border-border bg-card p-6">
-                <div className="h-5 w-24 rounded-full rm-skeleton" />
-                <div className="mt-5 h-7 w-2/3 rounded rm-skeleton" />
-                <div className="mt-3 h-4 w-1/2 rounded rm-skeleton" />
-                <div className="mt-6 space-y-2">
-                  <div className="h-4 w-full rounded rm-skeleton" />
-                  <div className="h-4 w-full rounded rm-skeleton" />
+              <div key={i} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card">
+                <div className="aspect-[4/3] w-full rm-skeleton" />
+                <div className="p-6">
+                  <div className="h-7 w-2/3 rounded rm-skeleton" />
+                  <div className="mt-3 h-4 w-1/2 rounded rm-skeleton" />
+                  <div className="mt-6 space-y-2">
+                    <div className="h-4 w-full rounded rm-skeleton" />
+                    <div className="h-4 w-full rounded rm-skeleton" />
+                  </div>
+                  <div className="mt-6 h-10 w-full rounded-full rm-skeleton" />
                 </div>
-                <div className="mt-6 h-10 w-full rounded-full rm-skeleton" />
               </div>
             ))}
           </div>
