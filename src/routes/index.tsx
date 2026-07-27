@@ -5,7 +5,7 @@ import yerbaTexture from "@/assets/yerba-texture.jpg";
 import { SITE, PRODUCTS, formatPrice, waLink } from "@/lib/site";
 import { WhatsAppIcon } from "@/components/site-layout";
 import { PhotoCarousel } from "@/components/photo-carousel";
-
+import favicon from "./assets/logo-rm.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
       {
         rel: "icon",
         type: "image/svg+xml",
-        href: "assets/logo-rm.jpg", 
+        href: favicon, 
       },
     ],
   }),
