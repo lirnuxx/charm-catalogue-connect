@@ -109,3 +109,40 @@
 @utility bg-gold-gradient { background: var(--gradient-gold); }
 @utility shadow-warm { box-shadow: var(--shadow-warm); }
 @utility text-balance { text-wrap: balance; }
+
+@keyframes rm-fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes rm-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes rm-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes rm-spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes rm-shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+@utility rm-anim-fade-up { animation: rm-fade-up 0.7s ease-out both; }
+@utility rm-anim-fade-in { animation: rm-fade-in 0.8s ease-out both; }
+@utility rm-anim-float { animation: rm-float 4s ease-in-out infinite; }
+@utility rm-anim-spin-slow { animation: rm-spin-slow 22s linear infinite; }
+@utility rm-delay-100 { animation-delay: 100ms; }
+@utility rm-delay-200 { animation-delay: 200ms; }
+@utility rm-delay-300 { animation-delay: 300ms; }
+@utility rm-delay-500 { animation-delay: 500ms; }
+@utility rm-skeleton {
+  background: linear-gradient(90deg,
+    color-mix(in oklab, var(--muted) 100%, transparent) 0%,
+    color-mix(in oklab, var(--accent) 100%, transparent) 50%,
+    color-mix(in oklab, var(--muted) 100%, transparent) 100%);
+  background-size: 800px 100%;
+  animation: rm-shimmer 1.6s linear infinite;
+}
