@@ -15,10 +15,16 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link to="/" className="flex min-w-0 items-center gap-3">
-          <img src={SITE.logo} alt="Logo La Ruta del Mate" className="h-11 w-11 shrink-0 rounded-full ring-1 ring-border" />
+          <img
+            src={SITE.logo}
+            alt="Logo La Ruta del Mate"
+            className="h-11 w-11 shrink-0 rounded-full ring-1 ring-border"
+          />
           <div className="min-w-0 leading-tight">
             <p className="truncate font-display text-lg font-semibold">{SITE.name}</p>
-            <p className="truncate text-xs text-muted-foreground">Suipacha · Yerbas seleccionadas</p>
+            <p className="truncate text-xs text-muted-foreground">
+              Suipacha · Yerbas seleccionadas
+            </p>
           </div>
         </Link>
         <nav className="hidden items-center gap-1 md:flex">
@@ -28,7 +34,10 @@ export function SiteHeader() {
               to={n.to}
               activeOptions={{ exact: n.to === "/" }}
               className="rounded-full px-4 py-2 text-sm font-medium text-foreground/80 transition hover:bg-accent hover:text-foreground"
-              activeProps={{ className: "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground" }}
+              activeProps={{
+                className:
+                  "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground",
+              }}
             >
               {n.label}
             </Link>

@@ -5,7 +5,6 @@ import c2 from "@/assets/carousel-2.jpg";
 import c3 from "@/assets/carousel-3.jpg";
 import c4 from "@/assets/carousel-4.jpg";
 
-
 const slides = [
   { src: c2, alt: "Selección de yerbas de La Ruta del Mate" },
   { src: c1, alt: "Mate tradicional con yerba" },
@@ -37,8 +36,7 @@ export function PhotoCarousel() {
     return () => clearInterval(id);
   }, [loaded]);
 
-  const go = (dir: number) =>
-    setI((v) => (v + dir + slides.length) % slides.length);
+  const go = (dir: number) => setI((v) => (v + dir + slides.length) % slides.length);
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -47,9 +45,7 @@ export function PhotoCarousel() {
           <p className="text-xs font-semibold uppercase tracking-widest text-primary-soft">
             Galería
           </p>
-          <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">
-            Momentos de mate
-          </h2>
+          <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">Momentos de mate</h2>
         </div>
         <div className="flex gap-2">
           <button
@@ -108,4 +104,3 @@ export function PhotoCarousel() {
     </section>
   );
 }
-
