@@ -67,6 +67,7 @@ export const PRODUCTS: Product[] = [
       { size: "500 g", price: 7000 },
     ],
     tag: "Premium",
+    image: imgReiPremium,
   },
   {
     id: "rei-verde-tradicional",
