@@ -108,6 +108,7 @@ export const PRODUCTS: Product[] = [
     profile: "Innovador, suave y aromático",
     variants: [{ size: "500 g", price: 8900 }],
     tag: "Novedad",
+    image: imgSaraCoco,
   },
 ];
 
