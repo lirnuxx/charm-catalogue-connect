@@ -1,4 +1,4 @@
-import logoAsset from "@/assets/logo.asset.json";
+import logoAsset from "@/assets/logo-rm.jpg.asset.json";
 
 export const SITE = {
   name: "La Ruta del Mate",
