@@ -4,6 +4,7 @@ import heroMate from "@/assets/hero-mate.jpg";
 import yerbaTexture from "@/assets/yerba-texture.jpg";
 import { SITE, PRODUCTS, formatPrice, waLink } from "@/lib/site";
 import { WhatsAppIcon } from "@/components/site-layout";
+import { PhotoCarousel } from "@/components/photo-carousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,21 +29,21 @@ function Home() {
         </div>
         <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 md:items-center md:py-24 lg:px-8 lg:py-28">
           <div className="min-w-0">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-widest text-[color:var(--gold)]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-widest text-[color:var(--gold)] rm-anim-fade-up">
               <Leaf className="h-3.5 w-3.5" /> Suipacha, Buenos Aires
             </span>
-            <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] text-balance sm:text-5xl lg:text-6xl">
+            <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] text-balance sm:text-5xl lg:text-6xl rm-anim-fade-up rm-delay-100">
               La ruta del mate empieza <span className="text-[color:var(--gold)]">acá</span>.
             </h1>
-            <p className="mt-5 max-w-xl text-base text-primary-foreground/80 sm:text-lg">
+            <p className="mt-5 max-w-xl text-base text-primary-foreground/80 sm:text-lg rm-anim-fade-up rm-delay-200">
               Yerbas uruguayas y brasileñas seleccionadas una por una. Perfiles clásicos,
               intensos y aromáticos para cada mate — con la calidez de un emprendimiento
               de pueblo.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-3 rm-anim-fade-up rm-delay-300">
               <Link
                 to="/catalogo"
-                className="inline-flex items-center gap-2 rounded-full bg-[color:var(--gold)] px-6 py-3 text-sm font-semibold text-[color:var(--gold-foreground)] shadow-warm transition hover:brightness-105"
+                className="inline-flex items-center gap-2 rounded-full bg-[color:var(--gold)] px-6 py-3 text-sm font-semibold text-[color:var(--gold-foreground)] shadow-warm transition hover:brightness-105 hover-scale"
               >
                 Ver catálogo <ArrowRight className="h-4 w-4" />
               </Link>
@@ -50,19 +51,19 @@ function Home() {
                 href={waLink("Hola Santiago! Quisiera hacer un pedido.")}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10 hover-scale"
               >
                 <WhatsAppIcon className="h-4 w-4" /> Pedir por WhatsApp
               </a>
             </div>
-            <div className="mt-10 flex flex-wrap items-center gap-6 text-xs text-primary-foreground/70">
+            <div className="mt-10 flex flex-wrap items-center gap-6 text-xs text-primary-foreground/70 rm-anim-fade-up rm-delay-500">
               <span className="flex items-center gap-2"><MapPin className="h-4 w-4 text-[color:var(--gold)]" /> Retiro en Suipacha</span>
               <span className="flex items-center gap-2"><Truck className="h-4 w-4 text-[color:var(--gold)]" /> Envíos coordinados</span>
               <span className="flex items-center gap-2"><Sparkles className="h-4 w-4 text-[color:var(--gold)]" /> Selección artesanal</span>
             </div>
           </div>
-          <div className="relative">
-            <div className="absolute -inset-6 rounded-[2rem] bg-[color:var(--gold)]/20 blur-3xl" aria-hidden />
+          <div className="relative rm-anim-fade-in rm-delay-200">
+            <div className="absolute -inset-6 rounded-[2rem] bg-[color:var(--gold)]/20 blur-3xl rm-anim-float" aria-hidden />
             <div className="relative overflow-hidden rounded-[2rem] ring-1 ring-white/15 shadow-warm">
               <img
                 src={heroMate}
@@ -84,7 +85,14 @@ function Home() {
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-[1fr_1.3fr] md:items-center">
           <div>
-            <img src={SITE.logo} alt="Logo La Ruta del Mate" className="mx-auto h-56 w-56 rounded-full ring-4 ring-[color:var(--gold)]/40 shadow-warm md:mx-0" />
+            <div className="relative mx-auto h-56 w-56 md:mx-0">
+              <div className="absolute -inset-4 rounded-full bg-[color:var(--gold)]/25 blur-2xl rm-anim-float" aria-hidden />
+              <img
+                src={SITE.logo}
+                alt="Logo La Ruta del Mate"
+                className="relative h-56 w-56 rounded-full ring-4 ring-[color:var(--gold)]/40 shadow-warm rm-anim-fade-in"
+              />
+            </div>
           </div>
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-primary-soft">Nuestra historia</p>
