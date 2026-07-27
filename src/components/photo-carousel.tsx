@@ -16,10 +16,25 @@ export function PhotoCarousel() {
   const [i, setI] = useState(0);
   const [loaded, setLoaded] = useState<Record<number, boolean>>({});
 
+  // Preload all images on mount so transitions are instant
   useEffect(() => {
-    const id = setInterval(() => setI((v) => (v + 1) % slides.length), 4500);
-    return () => clearInterval(id);
+    slides.forEach((s, idx) => {
+      const img = new Image();
+      img.src = s.src;
+      img.onload = () => setLoaded((l) => ({ ...l, [idx]: true }));
+    });
   }, []);
+
+  // Auto-advance every 4.5s, pause if the current slide hasn't loaded yet
+  useEffect(() => {
+    const id = setInterval(() => {
+      setI((v) => {
+        const next = (v + 1) % slides.length;
+        return loaded[next] ? next : v;
+      });
+    }, 4500);
+    return () => clearInterval(id);
+  }, [loaded]);
 
   const go = (dir: number) =>
     setI((v) => (v + dir + slides.length) % slides.length);
@@ -60,10 +75,11 @@ export function PhotoCarousel() {
               key={idx}
               src={s.src}
               alt={s.alt}
-              loading={idx === 0 ? "eager" : "lazy"}
+              loading="eager"
+              decoding="async"
               onLoad={() => setLoaded((l) => ({ ...l, [idx]: true }))}
               className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-out ${
-                idx === i && loaded[idx] ? "opacity-100" : "opacity-0"
+                idx === i ? "opacity-100" : "opacity-0"
               }`}
             />
           ))}
@@ -91,3 +107,4 @@ export function PhotoCarousel() {
     </section>
   );
 }
+
