@@ -61,15 +61,17 @@ function Catalog() {
         {loading ? (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: Math.max(3, filtered.length) }).map((_, i) => (
-              <div key={i} className="flex flex-col rounded-2xl border border-border bg-card p-6">
-                <div className="h-5 w-24 rounded-full rm-skeleton" />
-                <div className="mt-5 h-7 w-2/3 rounded rm-skeleton" />
-                <div className="mt-3 h-4 w-1/2 rounded rm-skeleton" />
-                <div className="mt-6 space-y-2">
-                  <div className="h-4 w-full rounded rm-skeleton" />
-                  <div className="h-4 w-full rounded rm-skeleton" />
+              <div key={i} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card">
+                <div className="aspect-[4/3] w-full rm-skeleton" />
+                <div className="p-6">
+                  <div className="h-7 w-2/3 rounded rm-skeleton" />
+                  <div className="mt-3 h-4 w-1/2 rounded rm-skeleton" />
+                  <div className="mt-6 space-y-2">
+                    <div className="h-4 w-full rounded rm-skeleton" />
+                    <div className="h-4 w-full rounded rm-skeleton" />
+                  </div>
+                  <div className="mt-6 h-10 w-full rounded-full rm-skeleton" />
                 </div>
-                <div className="mt-6 h-10 w-full rounded-full rm-skeleton" />
               </div>
             ))}
           </div>
@@ -79,13 +81,22 @@ function Catalog() {
               <article
                 key={p.id}
                 style={{ animationDelay: `${idx * 70}ms` }}
-                className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-warm rm-anim-fade-up"
+                className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-warm rm-anim-fade-up"
               >
-                <div className="flex items-center justify-between gap-2">
-                  <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{p.brand}</span>
-                  {p.tag && <span className="rounded-full bg-[color:var(--gold)]/20 px-3 py-1 text-xs font-medium text-foreground/80">{p.tag}</span>}
+                <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-secondary/60 to-background">
+                  <img
+                    src={p.image}
+                    alt={`Paquete de yerba ${p.name}`}
+                    loading="lazy"
+                    className="h-full w-full object-contain p-4 transition-transform duration-500 hover:scale-105"
+                  />
+                  <div className="absolute left-4 top-4 flex items-center gap-2">
+                    <span className="rounded-full bg-primary/90 px-3 py-1 text-xs font-medium text-primary-foreground backdrop-blur">{p.brand}</span>
+                    {p.tag && <span className="rounded-full bg-[color:var(--gold)]/90 px-3 py-1 text-xs font-medium text-foreground backdrop-blur">{p.tag}</span>}
+                  </div>
                 </div>
-                <h2 className="mt-4 font-display text-2xl font-semibold leading-tight">{p.name}</h2>
+                <div className="flex flex-1 flex-col p-6">
+                <h2 className="font-display text-2xl font-semibold leading-tight">{p.name}</h2>
                 <p className="mt-2 text-sm text-muted-foreground">{p.profile}</p>
                 <p className="mt-1 text-xs text-muted-foreground/80">Origen: {p.origin}</p>
 
@@ -108,6 +119,7 @@ function Catalog() {
                     <WhatsAppIcon className="h-4 w-4" /> Pedir por WhatsApp
                   </span>
                 </a>
+                </div>
               </article>
             ))}
           </div>

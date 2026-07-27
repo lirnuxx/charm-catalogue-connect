@@ -1,5 +1,12 @@
 
 import logoRm from "@/assets/logo-rm.jpg";
+import imgBaldo from "@/assets/yerbas/baldo.png";
+import imgCanarias from "@/assets/yerbas/canarias.png";
+import imgReiPremium from "@/assets/yerbas/rei-verde-premium.png";
+import imgReiTradicional from "@/assets/yerbas/rei-verde-tradicional.png";
+import imgReiClasica from "@/assets/yerbas/rei-verde-clasica.png";
+import imgReiCompuesta from "@/assets/yerbas/rei-verde-compuesta.png";
+import imgSaraCoco from "@/assets/yerbas/sara-coco.png";
 
 export const SITE = {
   name: "La Ruta del Mate",
@@ -22,6 +29,7 @@ export type Product = {
   profile: string;
   variants: { size: string; price: number }[];
   tag?: string;
+  image: string;
 };
 
 export const PRODUCTS: Product[] = [
@@ -36,6 +44,7 @@ export const PRODUCTS: Product[] = [
       { size: "500 g", price: 7000 },
     ],
     tag: "Clásico",
+    image: imgBaldo,
   },
   {
     id: "canarias",
@@ -45,6 +54,7 @@ export const PRODUCTS: Product[] = [
     profile: "Intenso y duradero",
     variants: [{ size: "1 kg", price: 11000 }],
     tag: "Intenso",
+    image: imgCanarias,
   },
   {
     id: "rei-verde-premium",
@@ -57,6 +67,7 @@ export const PRODUCTS: Product[] = [
       { size: "500 g", price: 7000 },
     ],
     tag: "Premium",
+    image: imgReiPremium,
   },
   {
     id: "rei-verde-tradicional",
@@ -65,6 +76,7 @@ export const PRODUCTS: Product[] = [
     origin: "Brasil / Uruguay — padrón uruguayo",
     profile: "Intenso, amargo y con cuerpo",
     variants: [{ size: "1 kg", price: 10500 }],
+    image: imgReiTradicional,
   },
   {
     id: "rei-verde-clasica",
@@ -76,6 +88,7 @@ export const PRODUCTS: Product[] = [
       { size: "1 kg", price: 10000 },
       { size: "500 g", price: 6000 },
     ],
+    image: imgReiClasica,
   },
   {
     id: "rei-verde-compuesta",
@@ -85,6 +98,7 @@ export const PRODUCTS: Product[] = [
     profile: "Herbal, digestivo y refrescante",
     variants: [{ size: "500 g", price: 7500 }],
     tag: "Con hierbas",
+    image: imgReiCompuesta,
   },
   {
     id: "sara-coco",
@@ -94,6 +108,7 @@ export const PRODUCTS: Product[] = [
     profile: "Innovador, suave y aromático",
     variants: [{ size: "500 g", price: 8900 }],
     tag: "Novedad",
+    image: imgSaraCoco,
   },
 ];
 
