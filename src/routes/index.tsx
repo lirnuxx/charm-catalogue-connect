@@ -121,6 +121,9 @@ function Home() {
         </div>
       </section>
 
+      {/* CAROUSEL */}
+      <PhotoCarousel />
+
       {/* FEATURED */}
       <section className="bg-secondary/60 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -134,8 +137,12 @@ function Home() {
             </Link>
           </div>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.map((p) => (
-              <article key={p.id} className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:shadow-warm">
+            {featured.map((p, idx) => (
+              <article
+                key={p.id}
+                style={{ animationDelay: `${idx * 120}ms` }}
+                className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-warm rm-anim-fade-up"
+              >
                 <div className="flex items-center justify-between">
                   <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{p.brand}</span>
                   {p.tag && <span className="rounded-full bg-[color:var(--gold)]/20 px-3 py-1 text-xs font-medium text-[color:var(--gold-foreground)]">{p.tag}</span>}
