@@ -1,4 +1,5 @@
 import logoAsset from "@/assets/logo-rm.jpg.asset.json";
+import logoRm from "@/assets/logo-rm.png";
 
 export const SITE = {
   name: "La Ruta del Mate",
@@ -7,7 +8,7 @@ export const SITE = {
   phone: "2324-624885",
   whatsapp: "5492324624885",
   instagram: "larutadelmate.suipacha",
-  logo: logoAsset.url,
+  logo: logoRm,
 } as const;
 
 export const waLink = (message: string) =>
