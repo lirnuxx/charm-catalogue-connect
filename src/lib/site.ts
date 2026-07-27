@@ -1,0 +1,100 @@
+import logoAsset from "@/assets/logo.asset.json";
+
+export const SITE = {
+  name: "La Ruta del Mate",
+  location: "Suipacha, Buenos Aires",
+  owner: "Santiago Lasala",
+  phone: "2324-624885",
+  whatsapp: "5492324624885",
+  instagram: "larutadelmate.suipacha",
+  logo: logoAsset.url,
+} as const;
+
+export const waLink = (message: string) =>
+  `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
+
+export type Product = {
+  id: string;
+  name: string;
+  brand: string;
+  origin: string;
+  profile: string;
+  variants: { size: string; price: number }[];
+  tag?: string;
+};
+
+export const PRODUCTS: Product[] = [
+  {
+    id: "baldo",
+    name: "Baldo",
+    brand: "Baldo",
+    origin: "Uruguay (producida en Brasil)",
+    profile: "Equilibrado y aromático",
+    variants: [
+      { size: "1 kg", price: 11500 },
+      { size: "500 g", price: 7000 },
+    ],
+    tag: "Clásico",
+  },
+  {
+    id: "canarias",
+    name: "Canarias",
+    brand: "Canarias",
+    origin: "Uruguay (producida en Brasil)",
+    profile: "Intenso y duradero",
+    variants: [{ size: "1 kg", price: 11000 }],
+    tag: "Intenso",
+  },
+  {
+    id: "rei-verde-premium",
+    name: "Rei Verde Premium",
+    brand: "Rei Verde",
+    origin: "Brasil / Uruguay",
+    profile: "Complejo, ahumado y cremoso",
+    variants: [
+      { size: "1 kg", price: 11000 },
+      { size: "500 g", price: 7000 },
+    ],
+    tag: "Premium",
+  },
+  {
+    id: "rei-verde-tradicional",
+    name: "Rei Verde Tradicional",
+    brand: "Rei Verde",
+    origin: "Brasil / Uruguay — padrón uruguayo",
+    profile: "Intenso, amargo y con cuerpo",
+    variants: [{ size: "1 kg", price: 10500 }],
+  },
+  {
+    id: "rei-verde-clasica",
+    name: "Rei Verde Clásica",
+    brand: "Rei Verde",
+    origin: "Brasil / Uruguay — padrón uruguayo",
+    profile: "Equilibrado, parejo y sutilmente ahumado",
+    variants: [
+      { size: "1 kg", price: 10000 },
+      { size: "500 g", price: 6000 },
+    ],
+  },
+  {
+    id: "rei-verde-compuesta",
+    name: "Rei Verde Compuesta",
+    brand: "Rei Verde",
+    origin: "Brasil / Uruguay",
+    profile: "Herbal, digestivo y refrescante",
+    variants: [{ size: "500 g", price: 7500 }],
+    tag: "Con hierbas",
+  },
+  {
+    id: "sara-coco",
+    name: "Sara de Coco",
+    brand: "Sara",
+    origin: "Uruguay (producida en Brasil)",
+    profile: "Innovador, suave y aromático",
+    variants: [{ size: "500 g", price: 8900 }],
+    tag: "Novedad",
+  },
+];
+
+export const formatPrice = (n: number) =>
+  new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS", maximumFractionDigits: 0 }).format(n);
