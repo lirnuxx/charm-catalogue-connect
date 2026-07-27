@@ -7,7 +7,11 @@ export const Route = createFileRoute("/contacto")({
   head: () => ({
     meta: [
       { title: "Contacto — La Ruta del Mate" },
-      { name: "description", content: "Contactá a Santiago Lasala por WhatsApp para pedidos, envíos y consultas sobre yerbas." },
+      {
+        name: "description",
+        content:
+          "Contactá a Santiago Lasala por WhatsApp para pedidos, envíos y consultas sobre yerbas.",
+      },
       { property: "og:title", content: "Contacto — La Ruta del Mate" },
       { property: "og:description", content: "Escribinos por WhatsApp para pedidos y consultas." },
     ],
@@ -23,8 +27,8 @@ function Contact() {
         Hablemos de mate.
       </h1>
       <p className="mt-3 max-w-2xl text-muted-foreground">
-        La forma más rápida de hacer un pedido o consultar por una yerba es por WhatsApp.
-        Te respondemos directamente nosotros — sin bots, sin vueltas.
+        La forma más rápida de hacer un pedido o consultar por una yerba es por WhatsApp. Te
+        respondemos directamente nosotros — sin bots, sin vueltas.
       </p>
 
       <div className="mt-10 grid gap-6 md:grid-cols-[1.2fr_1fr]">
@@ -46,9 +50,17 @@ function Contact() {
         </div>
 
         <ul className="space-y-4">
-          <InfoRow icon={<Phone className="h-5 w-5" />} title="Teléfono / WhatsApp" value={SITE.phone} />
+          <InfoRow
+            icon={<Phone className="h-5 w-5" />}
+            title="Teléfono / WhatsApp"
+            value={SITE.phone}
+          />
           <InfoRow icon={<MapPin className="h-5 w-5" />} title="Ubicación" value={SITE.location} />
-          <InfoRow icon={<Clock className="h-5 w-5" />} title="Atención" value="Lunes a Sábados · 9 a 21 hs" />
+          <InfoRow
+            icon={<Clock className="h-5 w-5" />}
+            title="Atención"
+            value="Lunes a Sábados · 9 a 21 hs"
+          />
           <li>
             <a
               href={`https://instagram.com/${SITE.instagram}`}
@@ -60,7 +72,9 @@ function Contact() {
                 <Instagram className="h-5 w-5" />
               </span>
               <div className="min-w-0">
-                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Instagram</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                  Instagram
+                </p>
                 <p className="truncate text-sm font-semibold">@{SITE.instagram}</p>
               </div>
             </a>
@@ -74,10 +88,16 @@ function Contact() {
           {[
             { n: 1, t: "Elegí tu yerba", d: "Mirá el catálogo y anotá lo que te interesa." },
             { n: 2, t: "Escribinos", d: "Mandanos WhatsApp con el pedido — te confirmamos stock." },
-            { n: 3, t: "Retiro o envío", d: "Coordinamos entrega en Suipacha o envío a coordinar." },
+            {
+              n: 3,
+              t: "Retiro o envío",
+              d: "Coordinamos entrega en Suipacha o envío a coordinar.",
+            },
           ].map((s) => (
             <li key={s.n} className="rounded-2xl bg-background p-5">
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-[color:var(--gold)] font-display font-bold text-[color:var(--gold-foreground)]">{s.n}</span>
+              <span className="grid h-9 w-9 place-items-center rounded-full bg-[color:var(--gold)] font-display font-bold text-[color:var(--gold-foreground)]">
+                {s.n}
+              </span>
               <p className="mt-3 font-semibold">{s.t}</p>
               <p className="mt-1 text-sm text-muted-foreground">{s.d}</p>
             </li>
@@ -91,9 +111,13 @@ function Contact() {
 function InfoRow({ icon, title, value }: { icon: React.ReactNode; title: string; value: string }) {
   return (
     <li className="flex items-start gap-3 rounded-2xl border border-border bg-card p-4">
-      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">{icon}</span>
+      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
+        {icon}
+      </span>
       <div className="min-w-0">
-        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">{title}</p>
+        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+          {title}
+        </p>
         <p className="truncate text-sm font-semibold">{value}</p>
       </div>
     </li>

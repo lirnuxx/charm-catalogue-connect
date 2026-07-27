@@ -41,13 +41,13 @@
 :root {
   --radius: 0.75rem;
   /* Verde mate & madera palette */
-  --background: oklch(0.97 0.015 85);            /* cream */
-  --foreground: oklch(0.22 0.03 145);            /* deep forest */
+  --background: oklch(0.97 0.015 85); /* cream */
+  --foreground: oklch(0.22 0.03 145); /* deep forest */
   --card: oklch(0.985 0.01 85);
   --card-foreground: oklch(0.22 0.03 145);
   --popover: oklch(0.985 0.01 85);
   --popover-foreground: oklch(0.22 0.03 145);
-  --primary: oklch(0.35 0.06 150);               /* mate green */
+  --primary: oklch(0.35 0.06 150); /* mate green */
   --primary-foreground: oklch(0.97 0.015 85);
   --primary-soft: oklch(0.55 0.09 150);
   --secondary: oklch(0.92 0.02 85);
@@ -56,7 +56,7 @@
   --muted-foreground: oklch(0.45 0.02 130);
   --accent: oklch(0.9 0.03 85);
   --accent-foreground: oklch(0.28 0.04 150);
-  --gold: oklch(0.72 0.13 82);                   /* warm dorado */
+  --gold: oklch(0.72 0.13 82); /* warm dorado */
   --gold-foreground: oklch(0.22 0.03 145);
   --destructive: oklch(0.55 0.2 27);
   --destructive-foreground: oklch(0.98 0 0);
@@ -66,7 +66,12 @@
   --whatsapp: oklch(0.68 0.17 148);
 
   --shadow-warm: 0 20px 60px -30px oklch(0.22 0.03 145 / 0.35);
-  --gradient-hero: linear-gradient(135deg, oklch(0.28 0.05 150) 0%, oklch(0.18 0.03 145) 60%, oklch(0.14 0.02 145) 100%);
+  --gradient-hero: linear-gradient(
+    135deg,
+    oklch(0.28 0.05 150) 0%,
+    oklch(0.18 0.03 145) 60%,
+    oklch(0.14 0.02 145) 100%
+  );
   --gradient-gold: linear-gradient(120deg, oklch(0.75 0.13 82), oklch(0.62 0.14 60));
 }
 
@@ -95,54 +100,109 @@
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
+  * {
+    border-color: var(--color-border);
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
 }
 
-@utility bg-hero-gradient { background: var(--gradient-hero); }
-@utility bg-gold-gradient { background: var(--gradient-gold); }
-@utility shadow-warm { box-shadow: var(--shadow-warm); }
-@utility text-balance { text-wrap: balance; }
+@utility bg-hero-gradient {
+  background: var(--gradient-hero);
+}
+@utility bg-gold-gradient {
+  background: var(--gradient-gold);
+}
+@utility shadow-warm {
+  box-shadow: var(--shadow-warm);
+}
+@utility text-balance {
+  text-wrap: balance;
+}
 
 @keyframes rm-fade-up {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @keyframes rm-fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @keyframes rm-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
 }
 @keyframes rm-spin-slow {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 @keyframes rm-shimmer {
-  0% { background-position: -400px 0; }
-  100% { background-position: 400px 0; }
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
 }
 
-@utility rm-anim-fade-up { animation: rm-fade-up 0.7s ease-out both; }
-@utility rm-anim-fade-in { animation: rm-fade-in 0.8s ease-out both; }
-@utility rm-anim-float { animation: rm-float 4s ease-in-out infinite; }
-@utility rm-anim-spin-slow { animation: rm-spin-slow 22s linear infinite; }
-@utility rm-delay-100 { animation-delay: 100ms; }
-@utility rm-delay-200 { animation-delay: 200ms; }
-@utility rm-delay-300 { animation-delay: 300ms; }
-@utility rm-delay-500 { animation-delay: 500ms; }
+@utility rm-anim-fade-up {
+  animation: rm-fade-up 0.7s ease-out both;
+}
+@utility rm-anim-fade-in {
+  animation: rm-fade-in 0.8s ease-out both;
+}
+@utility rm-anim-float {
+  animation: rm-float 4s ease-in-out infinite;
+}
+@utility rm-anim-spin-slow {
+  animation: rm-spin-slow 22s linear infinite;
+}
+@utility rm-delay-100 {
+  animation-delay: 100ms;
+}
+@utility rm-delay-200 {
+  animation-delay: 200ms;
+}
+@utility rm-delay-300 {
+  animation-delay: 300ms;
+}
+@utility rm-delay-500 {
+  animation-delay: 500ms;
+}
 @utility rm-skeleton {
-  background: linear-gradient(90deg,
+  background: linear-gradient(
+    90deg,
     color-mix(in oklab, var(--muted) 100%, transparent) 0%,
     color-mix(in oklab, var(--accent) 100%, transparent) 50%,
-    color-mix(in oklab, var(--muted) 100%, transparent) 100%);
+    color-mix(in oklab, var(--muted) 100%, transparent) 100%
+  );
   background-size: 800px 100%;
   animation: rm-shimmer 1.6s linear infinite;
 }

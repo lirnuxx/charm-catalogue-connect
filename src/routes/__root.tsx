@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -53,7 +54,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
-            onClick={() => { router.invalidate(); reset(); }}
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
             className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Reintentar
@@ -76,9 +80,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "La Ruta del Mate — Yerbas seleccionadas en Suipacha" },
-      { name: "description", content: "Yerbas uruguayas y brasileñas seleccionadas, distribuidas en Suipacha. Baldo, Canarias, Rei Verde, Sara y más." },
+      {
+        name: "description",
+        content:
+          "Yerbas uruguayas y brasileñas seleccionadas, distribuidas en Suipacha. Baldo, Canarias, Rei Verde, Sara y más.",
+      },
       { property: "og:title", content: "La Ruta del Mate — Yerbas seleccionadas" },
-      { property: "og:description", content: "Yerbas uruguayas y brasileñas seleccionadas, distribuidas en Suipacha." },
+      {
+        property: "og:description",
+        content: "Yerbas uruguayas y brasileñas seleccionadas, distribuidas en Suipacha.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -87,7 +98,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -122,6 +136,7 @@ function RootComponent() {
         <SiteFooter />
         <FloatingWhatsApp />
       </div>
+      <Analytics />
     </QueryClientProvider>
   );
 }

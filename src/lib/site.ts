@@ -1,4 +1,3 @@
-
 import logoRm from "@/assets/logo-rm.jpg";
 import imgBaldo from "@/assets/yerbas/baldo.png";
 import imgCanarias from "@/assets/yerbas/canarias.png";
@@ -113,4 +112,8 @@ export const PRODUCTS: Product[] = [
 ];
 
 export const formatPrice = (n: number) =>
-  new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS", maximumFractionDigits: 0 }).format(n);
+  new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    currency: "ARS",
+    maximumFractionDigits: 0,
+  }).format(n);
