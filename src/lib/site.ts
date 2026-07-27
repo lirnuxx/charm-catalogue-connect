@@ -76,6 +76,7 @@ export const PRODUCTS: Product[] = [
     origin: "Brasil / Uruguay — padrón uruguayo",
     profile: "Intenso, amargo y con cuerpo",
     variants: [{ size: "1 kg", price: 10500 }],
+    image: imgReiTradicional,
   },
   {
     id: "rei-verde-clasica",
