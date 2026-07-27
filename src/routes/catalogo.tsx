@@ -117,6 +117,7 @@ function Catalog() {
                     <WhatsAppIcon className="h-4 w-4" /> Pedir por WhatsApp
                   </span>
                 </a>
+                </div>
               </article>
             ))}
           </div>
