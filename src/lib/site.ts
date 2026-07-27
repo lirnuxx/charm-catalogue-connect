@@ -44,6 +44,7 @@ export const PRODUCTS: Product[] = [
       { size: "500 g", price: 7000 },
     ],
     tag: "Clásico",
+    image: imgBaldo,
   },
   {
     id: "canarias",
