@@ -18,7 +18,15 @@ export const Route = createFileRoute("/catalogo")({
 function Catalog() {
   const brands = useMemo(() => ["Todas", ...Array.from(new Set(PRODUCTS.map((p) => p.brand)))], []);
   const [brand, setBrand] = useState<string>("Todas");
+  const [loading, setLoading] = useState(false);
   const filtered = brand === "Todas" ? PRODUCTS : PRODUCTS.filter((p) => p.brand === brand);
+
+  const selectBrand = (b: string) => {
+    if (b === brand) return;
+    setLoading(true);
+    setBrand(b);
+    setTimeout(() => setLoading(false), 350);
+  };
 
   return (
     <>
@@ -35,7 +43,7 @@ function Catalog() {
             {brands.map((b) => (
               <button
                 key={b}
-                onClick={() => setBrand(b)}
+                onClick={() => selectBrand(b)}
                 className={`rounded-full border px-4 py-1.5 text-sm font-medium transition ${
                   brand === b
                     ? "border-primary bg-primary text-primary-foreground"
@@ -50,39 +58,60 @@ function Catalog() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((p) => (
-            <article key={p.id} className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:shadow-warm">
-              <div className="flex items-center justify-between gap-2">
-                <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{p.brand}</span>
-                {p.tag && <span className="rounded-full bg-[color:var(--gold)]/20 px-3 py-1 text-xs font-medium text-foreground/80">{p.tag}</span>}
+        {loading ? (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {Array.from({ length: Math.max(3, filtered.length) }).map((_, i) => (
+              <div key={i} className="flex flex-col rounded-2xl border border-border bg-card p-6">
+                <div className="h-5 w-24 rounded-full rm-skeleton" />
+                <div className="mt-5 h-7 w-2/3 rounded rm-skeleton" />
+                <div className="mt-3 h-4 w-1/2 rounded rm-skeleton" />
+                <div className="mt-6 space-y-2">
+                  <div className="h-4 w-full rounded rm-skeleton" />
+                  <div className="h-4 w-full rounded rm-skeleton" />
+                </div>
+                <div className="mt-6 h-10 w-full rounded-full rm-skeleton" />
               </div>
-              <h2 className="mt-4 font-display text-2xl font-semibold leading-tight">{p.name}</h2>
-              <p className="mt-2 text-sm text-muted-foreground">{p.profile}</p>
-              <p className="mt-1 text-xs text-muted-foreground/80">Origen: {p.origin}</p>
-
-              <div className="mt-5 space-y-1.5">
-                {p.variants.map((v) => (
-                  <div key={v.size} className="flex items-baseline justify-between border-b border-dashed border-border/70 py-1.5 text-sm">
-                    <span className="text-foreground/80">{v.size}</span>
-                    <span className="font-semibold text-foreground">{formatPrice(v.price)}</span>
-                  </div>
-                ))}
-              </div>
-
-              <a
-                href={waLink(`Hola! Quiero pedir ${p.name} (${p.variants.map((v) => v.size).join(" o ")}).`)}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-auto pt-6"
+            ))}
+          </div>
+        ) : (
+          <div key={brand} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {filtered.map((p, idx) => (
+              <article
+                key={p.id}
+                style={{ animationDelay: `${idx * 70}ms` }}
+                className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-warm rm-anim-fade-up"
               >
-                <span className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[color:var(--whatsapp)] px-4 py-2.5 text-sm font-semibold text-white transition hover:brightness-110">
-                  <WhatsAppIcon className="h-4 w-4" /> Pedir por WhatsApp
-                </span>
-              </a>
-            </article>
-          ))}
-        </div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{p.brand}</span>
+                  {p.tag && <span className="rounded-full bg-[color:var(--gold)]/20 px-3 py-1 text-xs font-medium text-foreground/80">{p.tag}</span>}
+                </div>
+                <h2 className="mt-4 font-display text-2xl font-semibold leading-tight">{p.name}</h2>
+                <p className="mt-2 text-sm text-muted-foreground">{p.profile}</p>
+                <p className="mt-1 text-xs text-muted-foreground/80">Origen: {p.origin}</p>
+
+                <div className="mt-5 space-y-1.5">
+                  {p.variants.map((v) => (
+                    <div key={v.size} className="flex items-baseline justify-between border-b border-dashed border-border/70 py-1.5 text-sm">
+                      <span className="text-foreground/80">{v.size}</span>
+                      <span className="font-semibold text-foreground">{formatPrice(v.price)}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <a
+                  href={waLink(`Hola! Quiero pedir ${p.name} (${p.variants.map((v) => v.size).join(" o ")}).`)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-auto pt-6"
+                >
+                  <span className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[color:var(--whatsapp)] px-4 py-2.5 text-sm font-semibold text-white transition hover:brightness-110">
+                    <WhatsAppIcon className="h-4 w-4" /> Pedir por WhatsApp
+                  </span>
+                </a>
+              </article>
+            ))}
+          </div>
+        )}
       </section>
     </>
   );
