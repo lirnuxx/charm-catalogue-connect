@@ -1,5 +1,12 @@
 
 import logoRm from "@/assets/logo-rm.jpg";
+import imgBaldo from "@/assets/yerbas/baldo.png";
+import imgCanarias from "@/assets/yerbas/canarias.png";
+import imgReiPremium from "@/assets/yerbas/rei-verde-premium.png";
+import imgReiTradicional from "@/assets/yerbas/rei-verde-tradicional.png";
+import imgReiClasica from "@/assets/yerbas/rei-verde-clasica.png";
+import imgReiCompuesta from "@/assets/yerbas/rei-verde-compuesta.png";
+import imgSaraCoco from "@/assets/yerbas/sara-coco.png";
 
 export const SITE = {
   name: "La Ruta del Mate",
@@ -22,6 +29,7 @@ export type Product = {
   profile: string;
   variants: { size: string; price: number }[];
   tag?: string;
+  image: string;
 };
 
 export const PRODUCTS: Product[] = [
