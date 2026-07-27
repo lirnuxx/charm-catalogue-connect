@@ -3,13 +3,14 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import c1 from "@/assets/carousel-1.jpg";
 import c2 from "@/assets/carousel-2.jpg";
 import c3 from "@/assets/carousel-3.jpg";
+import c4 from "@/assets/carousel-4.jpg";
 import hero from "@/assets/hero-mate.jpg";
 
 const slides = [
+  { src: c2, alt: "Selección de yerbas de La Ruta del Mate" },
   { src: c1, alt: "Mate tradicional con yerba" },
   { src: c3, alt: "Cebando mate con pava" },
-  { src: c2, alt: "Selección de yerbas de La Ruta del Mate" },
-  { src: hero, alt: "Mate listo para compartir" },
+  { src: c4, alt: "Mate listo para compartir" },
 ];
 
 export function PhotoCarousel() {
