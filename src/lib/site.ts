@@ -1,4 +1,4 @@
-import logoAsset from "@/assets/logo-rm.jpg.asset.json";
+
 import logoRm from "@/assets/logo-rm.png";
 
 export const SITE = {
