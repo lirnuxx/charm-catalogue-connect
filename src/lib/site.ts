@@ -88,6 +88,7 @@ export const PRODUCTS: Product[] = [
       { size: "1 kg", price: 10000 },
       { size: "500 g", price: 6000 },
     ],
+    image: imgReiClasica,
   },
   {
     id: "rei-verde-compuesta",
