@@ -54,6 +54,7 @@ export const PRODUCTS: Product[] = [
     profile: "Intenso y duradero",
     variants: [{ size: "1 kg", price: 11000 }],
     tag: "Intenso",
+    image: imgCanarias,
   },
   {
     id: "rei-verde-premium",
