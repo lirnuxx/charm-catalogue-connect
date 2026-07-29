@@ -49,8 +49,9 @@ function Home() {
               La ruta del mate empieza <span className="text-[color:var(--gold)]">acá</span>.
             </h1>
             <p className="mt-5 max-w-xl text-base text-primary-foreground/80 sm:text-lg rm-anim-fade-up rm-delay-200">
-              Yerbas uruguayas y brasileñas seleccionadas una por una. Perfiles clásicos, intensos y
-              aromáticos para cada mate — con la calidez de un emprendimiento de pueblo.
+              Yerbas uruguayas y brasileñas seleccionadas una por una, más termos, materas, yerberas,
+              azucareras y fundas para acompañar tu ronda. Todo con la calidez de un emprendimiento de
+              pueblo.
             </p>
             <div className="mt-8 flex flex-wrap gap-3 rm-anim-fade-up rm-delay-300">
               <Link
@@ -131,8 +132,9 @@ function Home() {
               brasileños, probamos cada partida y elegimos las que nos representan.
             </p>
             <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-              Desde Suipacha, con la confianza de tratar directo con quien atiende: sin
-              intermediarios, sin apuros — solo mate del bueno.
+              También conseguís termos, materas, yerberas, azucareras y fundas para completar tu
+              equipo de mate. Desde Suipacha, con la confianza de tratar directo con quien atiende:
+              sin intermediarios, sin apuros — solo mate del bueno.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
