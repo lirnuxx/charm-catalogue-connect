@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { PRODUCTS, formatPrice, waLink } from "@/lib/site";
+import { PRODUCTS, CATEGORIES, formatPrice, waLink } from "@/lib/site";
 import { WhatsAppIcon } from "@/components/site-layout";
 
 export const Route = createFileRoute("/catalogo")({
@@ -10,12 +10,12 @@ export const Route = createFileRoute("/catalogo")({
       {
         name: "description",
         content:
-          "Yerbas Baldo, Canarias, Rei Verde (Premium, Tradicional, Clásica, Compuesta) y Sara de Coco. Precios y presentaciones.",
+          "Yerbas, termos, materas, yerberas y azucareras, estuches y portamates. Precios y presentaciones.",
       },
       { property: "og:title", content: "Catálogo — La Ruta del Mate" },
       {
         property: "og:description",
-        content: "Yerbas seleccionadas: Baldo, Canarias, Rei Verde, Sara y más.",
+        content: "Yerbas seleccionadas y accesorios materos: termos, materas, yerberas y más.",
       },
     ],
   }),
@@ -23,15 +23,19 @@ export const Route = createFileRoute("/catalogo")({
 });
 
 function Catalog() {
-  const brands = useMemo(() => ["Todas", ...Array.from(new Set(PRODUCTS.map((p) => p.brand)))], []);
-  const [brand, setBrand] = useState<string>("Todas");
+  const categories = useMemo(() => {
+    const used = new Set(PRODUCTS.map((p) => p.category));
+    return ["Todo", ...CATEGORIES.filter((c) => used.has(c))];
+  }, []);
+  const [category, setCategory] = useState<string>("Todo");
   const [loading, setLoading] = useState(false);
-  const filtered = brand === "Todas" ? PRODUCTS : PRODUCTS.filter((p) => p.brand === brand);
+  const filtered =
+    category === "Todo" ? PRODUCTS : PRODUCTS.filter((p) => p.category === category);
 
-  const selectBrand = (b: string) => {
-    if (b === brand) return;
+  const selectCategory = (c: string) => {
+    if (c === category) return;
     setLoading(true);
-    setBrand(b);
+    setCategory(c);
     setTimeout(() => setLoading(false), 350);
   };
 
@@ -43,23 +47,23 @@ function Catalog() {
             Catálogo
           </p>
           <h1 className="mt-2 font-display text-4xl font-bold text-balance sm:text-5xl">
-            Yerbas seleccionadas, mate por mate.
+            Yerbas y accesorios, mate por mate.
           </h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">
             Todos los precios están en pesos argentinos. Coordinamos entrega o retiro por WhatsApp.
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
-            {brands.map((b) => (
+            {categories.map((c) => (
               <button
-                key={b}
-                onClick={() => selectBrand(b)}
+                key={c}
+                onClick={() => selectCategory(c)}
                 className={`rounded-full border px-4 py-1.5 text-sm font-medium transition ${
-                  brand === b
+                  category === c
                     ? "border-primary bg-primary text-primary-foreground"
                     : "border-border bg-background text-foreground/80 hover:bg-accent"
                 }`}
               >
-                {b}
+                {c}
               </button>
             ))}
           </div>
@@ -88,7 +92,7 @@ function Catalog() {
             ))}
           </div>
         ) : (
-          <div key={brand} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div key={category} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((p, idx) => (
               <article
                 key={p.id}
