@@ -1,15 +1,19 @@
 import logoRm from "@/assets/logo-rm.jpg";
 import imgBaldo from "@/assets/yerbas/baldo.png";
 import imgCanarias from "@/assets/yerbas/canarias.png";
+import imgCanariasEspecial from "@/assets/yerbas/canarias-especial.png";
 import imgReiPremium from "@/assets/yerbas/rei-verde-premium.png";
 import imgReiTradicional from "@/assets/yerbas/rei-verde-tradicional.png";
 import imgReiClasica from "@/assets/yerbas/rei-verde-clasica.png";
 import imgReiCompuesta from "@/assets/yerbas/rei-verde-compuesta.png";
 import imgSaraCoco from "@/assets/yerbas/sara-coco.png";
+import imgSaraTradicional from "@/assets/yerbas/sara-tradicional.png";
 import imgMatera from "@/assets/yerbas/matera-negra.jpg";
 import imgEstuche from "@/assets/yerbas/estuche-portamate.jpg";
 import imgYerbera from "@/assets/yerbas/yerbera-azucarera.jpg";
 import imgTermo from "@/assets/yerbas/termo.jpg";
+
+
 
 export const SITE = {
   name: "La Ruta del Mate",
@@ -81,7 +85,7 @@ export const PRODUCTS: Product[] = [
     profile: "Intenso, fino y de edición limitada",
     variants: [{ size: "500 g", price: 7500 }],
     tag: "Especial",
-    image: imgCanarias,
+    image: imgCanariasEspecial,
   },
   {
     id: "rei-verde-premium",
@@ -140,7 +144,7 @@ export const PRODUCTS: Product[] = [
     profile: "Clásico, robusto y duradero",
     variants: [{ size: "500 g", price: 7500 }],
     tag: "Tradicional",
-    image: imgSaraCoco,
+    image: imgSaraTradicional,
   },
   {
     id: "sara-coco",
