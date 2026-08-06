@@ -153,7 +153,7 @@ export const PRODUCTS: Product[] = [
     category: "Yerbas",
     origin: "Uruguay (producida en Brasil)",
     profile: "Innovador, suave y aromático",
-    variants: [{ size: "500 g", price: 7500 }],
+    variants: [{ size: "500 g", price: 8900 }],
     tag: "Novedad",
     image: imgSaraCoco,
   },
